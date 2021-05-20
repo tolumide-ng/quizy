@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchQuizAction } from "../../../store/modules/quiz/actions";
 import { RootState } from "../../../store/modules/types";
 import {
+    AnswersDef,
     HandleAnswerDef,
     QuizQuestionDef,
     ScreenStatusDef,
 } from "../../../commonTypes";
 
 interface ApplicationStateDef {
-    answers: Array<{ number: number; verdict: "right" | "wrong" }>;
+    answers: Array<AnswersDef>;
     screen: number;
     cannotBegin: boolean;
     status: ScreenStatusDef;
@@ -27,7 +28,7 @@ export const useAppState = () => {
         answers: [],
         screen: 0,
         cannotBegin: true,
-        status: "end",
+        status: "start",
         allQuestions: [],
     });
 
@@ -53,8 +54,6 @@ export const useAppState = () => {
                 cannotBegin: false,
                 allQuestions: selector.data,
             }));
-
-            console.log("ALL OF THE QUESTIONS TO SEE>>>>>>>", selector.data);
         }
     }, [selector.status]);
 
@@ -98,7 +97,6 @@ export const useAppState = () => {
     };
 
     const handleBegin = () => {
-        console.log("BUTTON CLICKED");
         setAppState((theAppState) => ({
             ...theAppState,
             screen: 0,

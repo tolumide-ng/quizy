@@ -7,17 +7,28 @@
     align-items: center;
 }
 
+.resultTop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .resultMid {
-    border: 1px solid red;
     height: 80%;
     width: 100%;
+    overflow-y: scroll;
+}
+
+.resultUl {
 }
 
 .resultLi {
     list-style: none;
+    display: flex;
+    margin-bottom: 1rem;
 }
 
-
-.resultButton {
-    
+.resultVerdict {
+    margin-right: 1rem;
 }

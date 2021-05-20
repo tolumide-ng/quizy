@@ -29,7 +29,18 @@ export const HomePage = () => {
                 totalQuestions={appState.allQuestions.length}
             />
         ),
-        end: () => <ResultScreen results={appState.answers} />,
+        end: () => (
+            <ResultScreen
+                results={appState.answers}
+                handlePlayAgain={handlePlayAgain}
+                allQuestions={appState.allQuestions}
+                rightAnswers={
+                    appState.answers.filter(
+                        (answer) => answer.verdict === "right"
+                    ).length
+                }
+            />
+        ),
     };
 
     return (

@@ -31,7 +31,6 @@ export const QuizScreen = (props: QuizScreenDef) => {
         <article className={style.quiz}>
             <div className={style.quizTop}>
                 <h2 className="appTitle">{props.category}</h2>
-                {props.currentQuestion}
             </div>
 
             <div className={style.quizMid}>
