@@ -1,7 +1,7 @@
 import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { RootStateDef } from ".";
-import { ForAxiosDefs, QuizStateDef } from "../../commonTypes";
+import { ForAxiosDefs, QuizQuestionDef } from "../../commonTypes";
 
 export interface RootState {
     dropDownReducer: {
@@ -10,7 +10,7 @@ export interface RootState {
     fetchQuizReducer: {
         status: StateStatusType;
         error: string | null;
-        data: QuizStateDef;
+        data: Array<QuizQuestionDef>;
     };
 }
 

@@ -39,7 +39,8 @@ export const fetchQuizAction =
         try {
             dispatch(fetchQuizPending());
             const response = await axiosCall(props);
-            dispatch(fetchQuizSuccess(response?.data));
+
+            dispatch(fetchQuizSuccess(response?.data?.results));
         } catch (error) {
             fetchQuizFailure(error?.message);
         }
