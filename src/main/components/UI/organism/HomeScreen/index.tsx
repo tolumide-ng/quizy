@@ -23,7 +23,7 @@ export const HomeScreen = (props: HomeScreenDef) => {
 
             <Button
                 buttonClass={`${style.homeButton} appButton`}
-                buttonText="Begin"
+                buttonText={props.cannotBegin ? "Please Wait" : "Begin"}
                 buttonType="button"
                 handleClick={props.handleBegin}
                 buttonDisabled={props.cannotBegin}

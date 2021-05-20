@@ -20,12 +20,19 @@ export type ForAxiosDefs =
     | undefined;
 
 export interface QuizStateDef {
-    data: Array<{
-        category: string;
-        type: string;
-        difficulty: string;
-        question: string;
-        correct_answer: string;
-        incorrect_answers: Array<string>;
-    }>;
+    data: Array<QuizQuestionDef>;
+}
+
+export interface QuizQuestionDef {
+    category: string;
+    type: string;
+    difficulty: string;
+    question: string;
+    correct_answer: string;
+    incorrect_answers: Array<string>;
+}
+
+export interface HandleAnswerDef {
+    number: number;
+    verdict: boolean;
 }

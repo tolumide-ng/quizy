@@ -1,17 +1,15 @@
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { HandleAnswerDef, QuizQuestionDef } from "../../../commonTypes";
 import { fetchQuizAction } from "../../../store/modules/quiz/actions";
 import { RootState } from "../../../store/modules/types";
-
-interface HandleAnswerDef {
-    number: number;
-    verdict: boolean;
-}
 
 interface ApplicationStateDef {
     answers: Array<{ number: number; verdict: boolean }>;
     screen: number;
     cannotBegin: boolean;
+    status: "start" | "quiz" | "end";
+    allQuestions: Array<QuizQuestionDef>;
 }
 
 export const useAppState = () => {
@@ -23,6 +21,8 @@ export const useAppState = () => {
         answers: [],
         screen: 0,
         cannotBegin: true,
+        status: "start",
+        allQuestions: [],
     });
 
     React.useEffect(() => {
@@ -45,9 +45,12 @@ export const useAppState = () => {
             setAppState((theAppState) => ({
                 ...theAppState,
                 cannotBegin: false,
+                allQuestions: selector.data,
             }));
+
+            console.log("ALL OF THE QUESTIONS TO SEE>>>>>>>", selector.data);
         }
-    }, []);
+    }, [selector.status]);
 
     const handleAnswer = (props: HandleAnswerDef) => {
         setAppState((theAppState) => ({
@@ -58,13 +61,21 @@ export const useAppState = () => {
     };
 
     const handlePlayAgain = () => {
-        setAppState({ answers: [], screen: 0, cannotBegin: false });
+        setAppState({
+            answers: [],
+            screen: 0,
+            cannotBegin: false,
+            status: "start",
+            allQuestions: selector.data,
+        });
     };
 
     const handleBegin = () => {
+        console.log("BUTTON CLICKED");
         setAppState((theAppState) => ({
             ...theAppState,
-            screen: 1,
+            screen: 0,
+            status: "quiz",
         }));
     };
 

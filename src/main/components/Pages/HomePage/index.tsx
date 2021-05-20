@@ -1,10 +1,11 @@
 import * as React from "react";
-import { HomeScreen } from "../../UI/organism/HomeScreeen";
+import { HomeScreen } from "../../UI/organism/HomeScreen";
+import { QuizScreen } from "../../UI/organism/QuizScreen";
 import style from "./index.module.css";
 import { useAppState } from "./useAppState";
 
 interface DisplayComponentDef {
-    [key: number]: () => JSX.Element;
+    [key: string]: () => JSX.Element;
 }
 
 export const HomePage = () => {
@@ -12,18 +13,28 @@ export const HomePage = () => {
         useAppState();
 
     const displayComponent: DisplayComponentDef = {
-        0: () => (
+        start: () => (
             <HomeScreen
                 handleBegin={handleBegin}
                 cannotBegin={appState.cannotBegin}
+            />
+        ),
+        quiz: () => (
+            <QuizScreen
+                handleAnswer={handleAnswer}
+                category={appState.allQuestions[appState.screen].category}
+                question={appState.allQuestions[appState.screen].question}
+                currentQuestion={appState.screen + 1}
+                totalQuestions={appState.allQuestions.length}
             />
         ),
     };
 
     return (
         <article className={style.ldpg}>
+            {/* {JSON.stringify(appState)} */}
             <article className={style.ldpgCont}>
-                {displayComponent[appState.screen]()}
+                {displayComponent[appState.status]()}
             </article>
         </article>
     );
