@@ -58,7 +58,7 @@ export const useAppState = () => {
     };
 
     const handlePlayAgain = () => {
-        // setAppState({ answers: [], screen: 0 });
+        setAppState({ answers: [], screen: 0, cannotBegin: false });
     };
 
     const handleBegin = () => {
