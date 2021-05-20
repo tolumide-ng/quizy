@@ -7,6 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--app-bg);
 }
 
 .ldpgCont {
@@ -15,6 +16,5 @@
     justify-content: center;
     align-items: center;
     width: calc(min(23.4375rem, 100vw));
-    background-color: var(--app-bg);
     padding: 1rem 2rem 2rem 2rem;
 }
