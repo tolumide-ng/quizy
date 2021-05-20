@@ -15,6 +15,8 @@ interface ApplicationStateDef {
 export const useAppState = () => {
     const dispatch = useDispatch();
 
+    const TOTAL_QUESTIONS = 10;
+
     const selector = useSelector((state: RootState) => state.fetchQuizReducer);
 
     const [appState, setAppState] = React.useState<ApplicationStateDef>({
@@ -33,7 +35,7 @@ export const useAppState = () => {
                     method: "GET",
                     payload: {},
                     params: {
-                        amount: 10,
+                        amount: TOTAL_QUESTIONS,
                         difficulty: "hard",
                         type: "boolean",
                     },
@@ -56,8 +58,18 @@ export const useAppState = () => {
         setAppState((theAppState) => ({
             ...theAppState,
             answers: [...theAppState.answers, props],
-            screen: theAppState.screen + 1,
+            screen:
+                props.number === TOTAL_QUESTIONS - 1
+                    ? theAppState.screen
+                    : theAppState.screen + 1,
         }));
+
+        if (props.number === TOTAL_QUESTIONS - 1) {
+            setAppState((theAppState) => ({
+                ...theAppState,
+                status: "end",
+            }));
+        }
     };
 
     const handlePlayAgain = () => {

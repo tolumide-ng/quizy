@@ -24,7 +24,7 @@ export const HomePage = () => {
                 handleAnswer={handleAnswer}
                 category={appState.allQuestions[appState.screen].category}
                 question={appState.allQuestions[appState.screen].question}
-                currentQuestion={appState.screen + 1}
+                currentQuestion={appState.screen}
                 totalQuestions={appState.allQuestions.length}
             />
         ),

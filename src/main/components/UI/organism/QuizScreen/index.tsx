@@ -12,7 +12,12 @@ interface QuizScreenDef {
 }
 
 export const QuizScreen = (props: QuizScreenDef) => {
-    const handleSubmit = () => {};
+    const handleAnswer = (verdict: boolean) => {
+        props.handleAnswer({
+            number: props.currentQuestion,
+            verdict,
+        });
+    };
 
     const divRef = React.useRef<HTMLDivElement>(null);
 
@@ -23,9 +28,10 @@ export const QuizScreen = (props: QuizScreenDef) => {
     }, [props.question]);
 
     return (
-        <form onSubmit={handleSubmit} className={style.quiz}>
-            <div className="">
+        <article className={style.quiz}>
+            <div className={style.quizTop}>
                 <h2 className={style.quizTitle}>{props.category}</h2>
+                {props.currentQuestion}
             </div>
 
             <div className={style.quizMid}>
@@ -34,23 +40,25 @@ export const QuizScreen = (props: QuizScreenDef) => {
                 </div>
 
                 <p>
-                    {props.currentQuestion} of {props.totalQuestions}
+                    {props.currentQuestion + 1} of {props.totalQuestions}
                 </p>
             </div>
 
-            <div className="">
+            <div className={style.quizBottom}>
                 <Button
-                    buttonClass={style.quizButton}
+                    buttonClass={`${style.quizButton} appButton`}
                     buttonText="True"
                     buttonType="submit"
+                    handleClick={() => handleAnswer(true)}
                 />
 
                 <Button
-                    buttonClass={style.quizButton}
+                    buttonClass={`${style.quizButton} appButton`}
                     buttonText="False"
                     buttonType="submit"
+                    handleClick={() => handleAnswer(false)}
                 />
             </div>
-        </form>
+        </article>
     );
 };

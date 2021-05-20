@@ -31,10 +31,17 @@
     padding: 3rem 1rem;
 }
 
-.homeButton {
+.quizButton {
     font-size: var(--app-fs);
     border: none;
     background-color: transparent;
     cursor: pointer;
     text-transform: uppercase;
+}
+
+.quizBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
