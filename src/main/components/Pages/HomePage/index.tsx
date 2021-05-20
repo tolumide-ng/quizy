@@ -13,13 +13,20 @@ export const HomePage = () => {
 
     const displayComponent: DisplayComponentDef = {
         1: () => ({
-            component: <HomeScreen handleBegin={handleBegin} />,
+            component: (
+                <HomeScreen
+                    handleBegin={handleBegin}
+                    cannotBegin={appState.cannotBegin}
+                />
+            ),
         }),
     };
 
     return (
         <article className={style.ldpg}>
-            <article className={style.ldpgCont}>{}</article>
+            <article className={style.ldpgCont}>
+                {displayComponent[appState.screen]}
+            </article>
         </article>
     );
 };

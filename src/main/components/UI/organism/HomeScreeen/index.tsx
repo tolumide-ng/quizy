@@ -4,6 +4,7 @@ import style from "./index.module.css";
 
 interface HomeScreenDef {
     handleBegin: () => void;
+    cannotBegin: boolean;
 }
 
 export const HomeScreen = (props: HomeScreenDef) => {
@@ -25,6 +26,7 @@ export const HomeScreen = (props: HomeScreenDef) => {
                 buttonText="Begin"
                 buttonType="button"
                 handleClick={props.handleBegin}
+                buttonDisabled={props.cannotBegin}
             />
         </article>
     );
