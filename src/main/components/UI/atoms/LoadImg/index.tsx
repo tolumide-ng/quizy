@@ -30,7 +30,7 @@ export const LoadImg = (props: LoadImgDef) => {
         if (theImage.current) {
             loadImages(theImage.current);
         }
-    }, [true]);
+    }, []);
 
     return (
         <picture className={props.loadPictureClass}>
