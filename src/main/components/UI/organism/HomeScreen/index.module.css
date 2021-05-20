@@ -7,12 +7,6 @@
     width: 100%;
 }
 
-.homeTitle {
-    text-align: center;
-    line-height: 2rem;
-    font-size: 1.75rem;
-}
-
 .homeDescription,
 .homeQuestion {
     text-align: center;
@@ -21,9 +15,4 @@
 }
 
 .homeButton {
-    font-size: var(--app-fs);
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    text-transform: uppercase;
 }

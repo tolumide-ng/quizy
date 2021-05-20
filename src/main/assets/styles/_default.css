@@ -1,3 +1,18 @@
+.appButton {
+    font-size: var(--app-fs);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
 .appButton:active {
     transform: scale(0.98);
+}
+
+.appTitle {
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1.75rem;
+    font-weight: bold;
 }

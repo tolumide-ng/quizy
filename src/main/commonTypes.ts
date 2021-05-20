@@ -36,3 +36,10 @@ export interface HandleAnswerDef {
     number: number;
     verdict: boolean;
 }
+
+export interface AnswersDef {
+    number: number;
+    verdict: "right" | "wrong";
+}
+
+export type ScreenStatusDef = "start" | "quiz" | "end";

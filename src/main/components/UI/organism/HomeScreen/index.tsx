@@ -10,7 +10,7 @@ interface HomeScreenDef {
 export const HomeScreen = (props: HomeScreenDef) => {
     return (
         <article className={style.home}>
-            <h2 className={style.homeTitle}>
+            <h2 className="appTitle">
                 Welcome to the <br /> Trivia Challenge!
             </h2>
 

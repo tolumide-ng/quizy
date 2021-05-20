@@ -30,8 +30,7 @@ export const QuizScreen = (props: QuizScreenDef) => {
     return (
         <article className={style.quiz}>
             <div className={style.quizTop}>
-                <h2 className={style.quizTitle}>{props.category}</h2>
-                {props.currentQuestion}
+                <h2 className="appTitle">{props.category}</h2>
             </div>
 
             <div className={style.quizMid}>
@@ -48,14 +47,14 @@ export const QuizScreen = (props: QuizScreenDef) => {
                 <Button
                     buttonClass={`${style.quizButton} appButton`}
                     buttonText="True"
-                    buttonType="submit"
+                    buttonType="button"
                     handleClick={() => handleAnswer(true)}
                 />
 
                 <Button
                     buttonClass={`${style.quizButton} appButton`}
                     buttonText="False"
-                    buttonType="submit"
+                    buttonType="button"
                     handleClick={() => handleAnswer(false)}
                 />
             </div>
