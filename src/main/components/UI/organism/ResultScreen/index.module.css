@@ -1,0 +1,23 @@
+.result {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.resultMid {
+    border: 1px solid red;
+    height: 80%;
+    width: 100%;
+}
+
+.resultLi {
+    list-style: none;
+}
+
+
+.resultButton {
+    
+}

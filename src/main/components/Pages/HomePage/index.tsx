@@ -1,6 +1,7 @@
 import * as React from "react";
 import { HomeScreen } from "../../UI/organism/HomeScreen";
 import { QuizScreen } from "../../UI/organism/QuizScreen";
+import { ResultScreen } from "../../UI/organism/ResultScreen";
 import style from "./index.module.css";
 import { useAppState } from "./useAppState";
 
@@ -28,6 +29,7 @@ export const HomePage = () => {
                 totalQuestions={appState.allQuestions.length}
             />
         ),
+        end: () => <ResultScreen results={appState.answers} />,
     };
 
     return (

@@ -1,14 +1,18 @@
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { HandleAnswerDef, QuizQuestionDef } from "../../../commonTypes";
 import { fetchQuizAction } from "../../../store/modules/quiz/actions";
 import { RootState } from "../../../store/modules/types";
+import {
+    HandleAnswerDef,
+    QuizQuestionDef,
+    ScreenStatusDef,
+} from "../../../commonTypes";
 
 interface ApplicationStateDef {
-    answers: Array<{ number: number; verdict: boolean }>;
+    answers: Array<{ number: number; verdict: "right" | "wrong" }>;
     screen: number;
     cannotBegin: boolean;
-    status: "start" | "quiz" | "end";
+    status: ScreenStatusDef;
     allQuestions: Array<QuizQuestionDef>;
 }
 
@@ -23,7 +27,7 @@ export const useAppState = () => {
         answers: [],
         screen: 0,
         cannotBegin: true,
-        status: "start",
+        status: "end",
         allQuestions: [],
     });
 
@@ -54,10 +58,21 @@ export const useAppState = () => {
         }
     }, [selector.status]);
 
+    const handleVerdict = (receivedAnswer: boolean, expectedAnswer: string) => {
+        const theAnswer = expectedAnswer === "True";
+
+        return receivedAnswer === theAnswer ? "right" : "wrong";
+    };
+
     const handleAnswer = (props: HandleAnswerDef) => {
+        const verdict = handleVerdict(
+            props.verdict,
+            appState.allQuestions[props.number].correct_answer
+        );
+
         setAppState((theAppState) => ({
             ...theAppState,
-            answers: [...theAppState.answers, props],
+            answers: [...theAppState.answers, { ...props, verdict }],
             screen:
                 props.number === TOTAL_QUESTIONS - 1
                     ? theAppState.screen
