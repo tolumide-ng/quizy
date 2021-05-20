@@ -3,12 +3,18 @@
     --ldpg-r-pb: 80px;
     --ldpg-r-pr: 34px;
     --ldpg-r-pl: 47px;
+    /* width: calc(min(var(--app-max-w), 100vw)); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .ldpgCont {
     height: 100vh;
-    width: calc(min(var(--app-max-w), 100vw));
     display: flex;
     justify-content: center;
     align-items: center;
+    width: calc(min(23.4375rem, 100vw));
+    background-color: var(--app-bg);
+    padding: 1rem 2rem 2rem 2rem;
 }
