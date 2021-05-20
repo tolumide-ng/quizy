@@ -9,6 +9,8 @@ export interface RootState {
     };
 }
 
+export type StateStatusType = "pending" | "failure" | "success" | "rest";
+
 export interface StoreActionPropsDefs {
     path: string;
     payload: {};
