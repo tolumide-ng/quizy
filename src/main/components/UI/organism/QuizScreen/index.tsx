@@ -14,15 +14,23 @@ interface QuizScreenDef {
 export const QuizScreen = (props: QuizScreenDef) => {
     const handleSubmit = () => {};
 
+    const divRef = React.useRef<HTMLDivElement>(null);
+
+    React.useEffect(() => {
+        if (divRef.current) {
+            divRef.current.innerHTML = props.question;
+        }
+    }, [props.question]);
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={style.quiz}>
             <div className="">
-                <h2>{props.category}</h2>
+                <h2 className={style.quizTitle}>{props.category}</h2>
             </div>
 
-            <div className="">
-                <div className="">
-                    <p>{props.question}</p>
+            <div className={style.quizMid}>
+                <div className={style.quizQuestionCont}>
+                    <div className={style.quizQuestion} ref={divRef}></div>
                 </div>
 
                 <p>

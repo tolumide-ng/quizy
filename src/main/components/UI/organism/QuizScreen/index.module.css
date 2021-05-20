@@ -1,0 +1,40 @@
+.quiz {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.quizTitle {
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1.75rem;
+}
+
+.quizMid {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.quizQuestion {
+    text-align: center;
+    font-size: var(--app-fs);
+    line-height: 2rem;
+}
+
+.quizQuestionCont {
+    border: 1px solid var(--color-black);
+    margin-bottom: 2rem;
+    padding: 3rem 1rem;
+}
+
+.homeButton {
+    font-size: var(--app-fs);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+}

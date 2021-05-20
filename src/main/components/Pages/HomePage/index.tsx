@@ -32,7 +32,6 @@ export const HomePage = () => {
 
     return (
         <article className={style.ldpg}>
-            {/* {JSON.stringify(appState)} */}
             <article className={style.ldpgCont}>
                 {displayComponent[appState.status]()}
             </article>
