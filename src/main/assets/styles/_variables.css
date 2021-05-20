@@ -8,6 +8,10 @@
     --color-white: #fff;
     --color-black: #000;
     --color-scorpion: #5f5f5f;
+
+    --app-max-w: 1500px;
+    --app-bg: #e0e0e0;
+    --app-fs: 1.5rem;
 }
 
 @media screen and (max-width: 1024px) {
