@@ -9,7 +9,7 @@ interface HomeScreenDef {
 
 export const HomeScreen = (props: HomeScreenDef) => {
     return (
-        <article className={style.home}>
+        <article className={style.home} aria-label="article">
             <h2 className="appTitle">
                 Welcome to the <br /> Trivia Challenge!
             </h2>
@@ -27,6 +27,7 @@ export const HomeScreen = (props: HomeScreenDef) => {
                 buttonType="button"
                 handleClick={props.handleBegin}
                 buttonDisabled={props.cannotBegin}
+                buttonAriaLabel="button"
             />
         </article>
     );

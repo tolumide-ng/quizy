@@ -28,7 +28,7 @@ export const QuizScreen = (props: QuizScreenDef) => {
     }, [props.question]);
 
     return (
-        <article className={style.quiz}>
+        <article className={style.quiz} aria-label="quiz">
             <div className={style.quizTop}>
                 <h2 className="appTitle">{props.category}</h2>
             </div>
@@ -49,12 +49,14 @@ export const QuizScreen = (props: QuizScreenDef) => {
                     buttonText="True"
                     buttonType="button"
                     handleClick={() => handleAnswer(true)}
+                    buttonAriaLabel="true"
                 />
 
                 <Button
                     buttonClass={`${style.quizButton} appButton`}
                     buttonText="False"
                     buttonType="button"
+                    buttonAriaLabel="false"
                     handleClick={() => handleAnswer(false)}
                 />
             </div>

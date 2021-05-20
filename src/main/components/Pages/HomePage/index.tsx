@@ -44,7 +44,7 @@ export const HomePage = () => {
     };
 
     return (
-        <article className={style.ldpg}>
+        <article className={style.ldpg} aria-label="quizy app">
             <article className={style.ldpgCont}>
                 {displayComponent[appState.status]()}
             </article>

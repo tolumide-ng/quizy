@@ -12,7 +12,7 @@ interface ResultScreenDef {
 
 export const ResultScreen = (props: ResultScreenDef) => {
     return (
-        <article className={style.result}>
+        <article className={style.result} aria-label="result">
             <div className={style.resultTop}>
                 <h2 className="appTitle">You scored</h2>
                 <p className="appTitle">
@@ -21,9 +21,13 @@ export const ResultScreen = (props: ResultScreenDef) => {
             </div>
 
             <div className={style.resultMid}>
-                <ul className={style.resultUl}>
+                <ul className={style.resultUl} role="list">
                     {props.results.map((result) => (
-                        <li className={style.resultLi} key={result.number}>
+                        <li
+                            className={style.resultLi}
+                            key={result.number}
+                            role="listItem"
+                        >
                             <p className={style.resultVerdict}>
                                 {result.verdict === "wrong" ? "-" : "+"}
                             </p>{" "}
@@ -41,6 +45,7 @@ export const ResultScreen = (props: ResultScreenDef) => {
                     buttonText="play again?"
                     buttonType="button"
                     handleClick={props.handlePlayAgain}
+                    buttonAriaLabel="play again"
                 />
             </div>
         </article>
